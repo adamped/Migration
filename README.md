@@ -23,3 +23,6 @@ The basic premise for these scenarios have been accounted for:
 4) Run the app
 
 All .dart pages will be output to the outputDirectory. From there you can put them in a Flutter project and manually clean up.
+
+### Special Notes
+1) Run `flutter pub add flutter_layout_grid` on your Flutter project. I use this plugin to best mimic the Xamarin Grid control.
