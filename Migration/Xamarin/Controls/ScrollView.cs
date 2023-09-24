@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace Migration.Xamarin.Controls
 {
-    internal sealed class ScrollView : ChildElement
+    internal sealed class ScrollView : ContentView
     {
         internal override Widget Build(WidgetProcessor processor, XElement element)
         {

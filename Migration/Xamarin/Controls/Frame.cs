@@ -5,22 +5,15 @@ using System.Xml.Linq;
 
 namespace Migration.Xamarin.Controls
 {
-    internal class Frame : ChildElement
+    internal class Frame : ContentView
     {
         internal override Widget Build(WidgetProcessor processor, XElement element)
         {
             var child = BuildChild(processor, element.FirstNode as XElement);
 
-            Flutter.Types.Color? backgroundColor = null;
+            var attr = element.Attributes();
 
-            var value = element.Attributes().FirstOrDefault(x => x.Name.LocalName == "BackgroundColor")?.Value;
-
-            if (value != null)
-            {
-                backgroundColor = new Flutter.Types.Color(value);
-            }
-
-            return new Container(child, backgroundColor).BuildWrapperChain(element);
+            return new Container(child, GetBackgroundColor(attr)).BuildWrapperChain(element);
         }
     }
 }

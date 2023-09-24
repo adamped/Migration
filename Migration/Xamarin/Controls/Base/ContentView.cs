@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace Migration.Xamarin.Controls.Base
 {
-    internal abstract class ChildElement : Element
+    internal abstract class ContentView : Layout
     {
         internal Widget BuildChild(WidgetProcessor processor, XElement? node)
         {
