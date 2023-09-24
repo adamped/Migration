@@ -11,7 +11,16 @@ namespace Migration.Xamarin.Controls
         {
             var child = BuildChild(processor, element.FirstNode as XElement);
 
-            return new Container(child).BuildWrapperChain(element);
+            Flutter.Types.Color? backgroundColor = null;
+
+            var value = element.Attributes().FirstOrDefault(x => x.Name.LocalName == "BackgroundColor")?.Value;
+
+            if (value != null)
+            {
+                backgroundColor = new Flutter.Types.Color(value);
+            }
+
+            return new Container(child, backgroundColor).BuildWrapperChain(element);
         }
     }
 }

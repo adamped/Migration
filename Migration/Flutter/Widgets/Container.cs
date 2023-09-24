@@ -4,13 +4,27 @@ namespace Migration.Flutter.Widgets
 {
     internal class Container : ChildWidget
     {
-        public Container(Widget child) : base(child)
+        readonly Types.Color? _backgroundColor;
+        public Container(Widget child, Types.Color? backgroundColor) : base(child)
         {
+            _backgroundColor = backgroundColor;
         }
 
         internal override string Build()
         {
-            return $"Container(child: {Child.Build()}),";
+            return $"Container({Properties()}child: {Child.Build()}),";
+        }
+
+        string Properties()
+        {
+            var properties = string.Empty;
+
+            if (_backgroundColor != null)
+            {
+                properties += $"color:{_backgroundColor},";
+            }
+
+            return properties;
         }
     }
 }

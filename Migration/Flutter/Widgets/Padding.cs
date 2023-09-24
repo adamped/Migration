@@ -18,7 +18,7 @@ namespace Migration.Flutter.Widgets
 
         internal override string Build()
         {
-            var padding = string.Empty;
+            string padding;
 
             if (_left == _right && _right == _top && _top == _bottom)
             {
@@ -29,7 +29,7 @@ namespace Migration.Flutter.Widgets
                 padding = $"const EdgeInsets.fromLTRB({_left}, {_top}, {_right}, {_bottom})";
             }
 
-            return $"Padding(padding: {padding}, child: {Child.Build()},\n),";
+            return $"Padding(padding: {padding}, child: {Child.Build()}\n),";
         }
     }
 }

@@ -25,8 +25,8 @@ namespace Migration.Flutter.Widgets
 
         internal override string Build()
         {
-            var rowSizes = rowDefinitions.ConvertAll<string>(ConvertGridSize);
-            var columnSizes = columnDefinitions.ConvertAll<string>(ConvertGridSize);
+            var rowSizes = string.Join(",", rowDefinitions.ConvertAll<string>(ConvertGridSize));
+            var columnSizes = string.Join(",", columnDefinitions.ConvertAll<string>(ConvertGridSize));
 
             var childWidgets = "";
 
