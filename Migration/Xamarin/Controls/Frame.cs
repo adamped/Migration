@@ -13,7 +13,7 @@ namespace Migration.Xamarin.Controls
 
             var attr = element.Attributes();
 
-            return new Container(child, GetBackgroundColor(attr)).BuildWrapperChain(element);
+            return new Container(child, GetBackgroundColor(attr), GetHeightRequest(attr), GetWidthRequest(attr)).BuildWrapperChain(element);
         }
     }
 }

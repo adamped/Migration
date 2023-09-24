@@ -40,7 +40,7 @@ namespace Migration.Xamarin
                     backgroundColor = new Flutter.Types.Color(value);
                 }
 
-                child = new Container(Padding(child, padding), backgroundColor);
+                child = new Container(Padding(child, padding), backgroundColor, null, null);
 
             }
 

@@ -17,5 +17,29 @@ namespace Migration.Xamarin.Controls.Base
 
             return backgroundColor;
         }
+
+        internal static double? GetHeightRequest(IEnumerable<XAttribute> attr)
+        {
+            var value = attr.FirstOrDefault(x => x.Name.LocalName == "HeightRequest")?.Value;
+
+            if (string.IsNullOrEmpty(value))
+            {
+                return null;
+            }
+
+            return double.Parse(value);            
+        }
+
+        internal static double? GetWidthRequest(IEnumerable<XAttribute> attr)
+        {
+            var value = attr.FirstOrDefault(x => x.Name.LocalName == "WidthRequest")?.Value;
+
+            if (string.IsNullOrEmpty(value))
+            {
+                return null;
+            }
+
+            return double.Parse(value);
+        }
     }
 }
