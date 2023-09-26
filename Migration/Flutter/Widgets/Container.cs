@@ -20,7 +20,7 @@ namespace Migration.Flutter.Widgets
 
             if (Child != null)
             {
-                child = $"child: {Child.Build()},";
+                child = $"child: {Child.Build()}";
             }
 
             return $"Container({Properties()}{child}),";

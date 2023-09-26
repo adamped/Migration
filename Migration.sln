@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migration", "Migration\Migr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.Sample", "Maui.Sample\Maui.Sample.csproj", "{63AD9DEE-8207-4D0E-B4A1-3C4AED064ED5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Sample", "Xamarin.Sample\Xamarin.Sample\Xamarin.Sample.csproj", "{E00C40D1-2D1B-490C-AA10-25809DE58415}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Sample", "Xamarin.Sample\Xamarin.Sample.csproj", "{E00C40D1-2D1B-490C-AA10-25809DE58415}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{8A1EFD52-D1FB-4976-BFBB-38AA301B461B}"
 EndProject

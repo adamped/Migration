@@ -12,7 +12,7 @@ namespace Migration.Flutter.Widgets
 
         internal override string Build()
         {
-            return $"Text('{_text}'),";
+            return $"Text({_text}),";
         }
     }
 }

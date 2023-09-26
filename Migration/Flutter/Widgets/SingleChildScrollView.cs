@@ -10,7 +10,7 @@ namespace Migration.Flutter.Widgets
 
         internal override string Build()
         {
-            return $"SingleChildScrollView(child: {Child.Build()},),";
+            return $"SingleChildScrollView(child: {Child.Build()}),";
         }
     }
 }

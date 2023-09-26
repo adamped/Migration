@@ -2,5 +2,5 @@
 
 namespace Migration.Discovery
 {
-    internal sealed record Page(string FileName, XDocument Xaml);
+    internal sealed record Page(string Folder, string FileName, XDocument Xaml);
 }

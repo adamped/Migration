@@ -13,7 +13,7 @@ namespace Migration.Xamarin.Controls
 
             var text = attributes.GetAttribute("Text") ?? "";
 
-            return new Text(text).BuildWrapperChain(element);
+            return new Text(text.FormatStringValue()).BuildWrapperChain(element);
         }
     }
 }

@@ -25,12 +25,19 @@ namespace Migration.Discovery
 
                 if (document?.Root?.Name.LocalName == "ContentPage")
                 {
-                    pages.Add(new Page(Path.GetFileName(file), document));
+                    pages.Add(new Page(GetSubFolder(RootFolder, file), Path.GetFileName(file), document));
                 }
             }
 
             return pages;
 
+        }
+
+        static string GetSubFolder(string rootDirectory, string filePath)
+        {
+            var fileName = Path.GetFileName(filePath);
+
+            return filePath.Replace(rootDirectory, "").Replace(fileName, "");
         }
     }
 }
