@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace Migration.Xamarin.Controls
 {
-    internal sealed class Label : Element
+    internal sealed class Label : View
     {
         internal override Widget Build(WidgetProcessor processor, XElement element)
         {
@@ -13,7 +13,24 @@ namespace Migration.Xamarin.Controls
 
             var text = attributes.GetAttribute("Text") ?? "";
 
-            return new Text(text.FormatStringValue()).BuildWrapperChain(element);
+            var gestureRecognizers = GetGestureRecognizers(element);
+
+            var child = new Text(text.FormatStringValue()).BuildWrapperChain(element);
+
+            if (gestureRecognizers.Count == 0)
+            {
+                return child;
+            }
+
+            var wrappedChild = child;
+
+            // Create GestureDetectors
+            foreach (var gestureRecognizer in gestureRecognizers)
+            {
+                wrappedChild = new GestureDetector(wrappedChild, gestureRecognizer.Command.GetBinding().PropertyNameToDart(), gestureRecognizer.Parameter);
+            }
+
+            return wrappedChild;
         }
     }
 }

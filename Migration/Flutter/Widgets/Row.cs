@@ -16,7 +16,7 @@ namespace Migration.Flutter.Widgets
                 childWidgets += $"{child.Build()}\n";
             }
 
-            return $"Row(children: [{childWidgets}]),";
+            return $"Row(children: [{childWidgets}],),";
         }
     }
 }
