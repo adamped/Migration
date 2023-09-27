@@ -12,8 +12,10 @@ namespace Migration.Xamarin.Controls
             var attributes = element.Attributes();
 
             var text = attributes.GetAttribute("Text") ?? "";
+            var command = attributes.GetAttribute("Command") ?? "";
+            var commandParameter = attributes.GetAttribute("CommandParameter") ?? "";
 
-            return new TextButton(text).BuildWrapperChain(element);
+            return new TextButton(text, command, commandParameter).BuildWrapperChain(element);
         }
     }
 }

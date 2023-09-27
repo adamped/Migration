@@ -9,11 +9,13 @@
         /// </summary>
         internal static List<string> Models { get; } = new();
         internal static List<string> StateProperties { get; } = new();
+        internal static List<string> Functions { get; } = new();
 
         internal static void Clear()
         {
             Models.Clear();
             StateProperties.Clear();
+            Functions.Clear();
         }
 
         internal static void AddModelClass(string className, Dictionary<string, string> properties)
@@ -45,6 +47,27 @@
                 """;
 
             StateProperties.Add(string.Format(model, type, propertyName, constructor));
+        }
+
+        internal static void AddFunction(string functionName, bool hasParameter)
+        {
+            if (string.IsNullOrEmpty(functionName))
+                return;
+
+            var model = """
+                void {0}({1}) {{
+
+                }}
+                """;
+
+            string parameter = "";
+
+            if (hasParameter)
+            {
+                parameter = $"String parameter";
+            }
+
+            Functions.Add(string.Format(model, functionName, parameter));
         }
     }
 }

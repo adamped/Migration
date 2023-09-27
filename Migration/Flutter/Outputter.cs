@@ -4,7 +4,7 @@ namespace Migration.Flutter
 {
     internal sealed class Outputter
     {
-        public static void Output(string path, string name, Widget widgetTree, List<string> models, List<string> stateProperties)
+        public static void Output(string path, string name, Widget widgetTree, List<string> models, List<string> stateProperties, List<string> functions)
         {
             var output = widgetTree.Build();
 
@@ -15,7 +15,7 @@ namespace Migration.Flutter
                 Directory.CreateDirectory(directoryPath);
             }
 
-            File.WriteAllText(Path.Combine(path, $"{name.ToSnakeCase()}.dart"), BuildOutput(name, output, "", string.Join('\n', models.ToArray()), string.Join('\n', stateProperties.ToArray())));
+            File.WriteAllText(Path.Combine(path, $"{name.ToSnakeCase()}.dart"), BuildOutput(name, output, string.Join('\n', functions.ToArray()), string.Join('\n', models.ToArray()), string.Join('\n', stateProperties.ToArray())));
 
             Console.WriteLine($"Converted: {name}");
         }
@@ -57,9 +57,9 @@ namespace Migration.Flutter
                 return Scaffold(
                     body:{1}
                 );
-
-                {2}
-              }}
+              }}            
+            
+              {2}
             }}
 
             """;

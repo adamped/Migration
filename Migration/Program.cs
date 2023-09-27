@@ -18,7 +18,7 @@ var xamlPages = discovery.Find();
 foreach (var xamlPage in xamlPages)
 {
     var widget = Builder.Build(xamlPage.Xaml);
-    Outputter.Output(Path.Combine(outputDirectory, xamlPage.Folder.PathToDart()), CleanFileName(xamlPage.FileName), widget, Services.Models, Services.StateProperties);
+    Outputter.Output(Path.Combine(outputDirectory, xamlPage.Folder.PathToDart()), CleanFileName(xamlPage.FileName), widget, Services.Models, Services.StateProperties, Services.Functions);
     Services.Clear();
 }
 
