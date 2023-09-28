@@ -24,7 +24,7 @@ namespace Migration.Flutter
             return type switch
             {
                 "Label" => "TextStyle",
-                _ => string.Empty,
+                _ => type,
             };
         }
 
@@ -48,7 +48,7 @@ namespace Migration.Flutter
             return name switch
             {
                 "TextColor" => "color",
-                _ => string.Empty
+                _ => name
             };
         }
 
@@ -57,7 +57,7 @@ namespace Migration.Flutter
             return name switch
             {
                 "TextColor" => ConvertColor(value),
-                _ => string.Empty
+                _ => value
             };
         }
 
