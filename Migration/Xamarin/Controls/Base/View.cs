@@ -1,5 +1,5 @@
 ﻿using Migration.Flutter.Widgets.Base;
-using Migration.Xamarin.Controls.Entity;
+using Migration.Xamarin.Entity;
 using System.Xml.Linq;
 
 namespace Migration.Xamarin.Controls.Base

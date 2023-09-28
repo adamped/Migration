@@ -4,7 +4,7 @@ namespace Migration.Flutter
 {
     internal sealed class Outputter
     {
-        public static void Output(string path, string name, Widget widgetTree, List<string> models, List<string> stateProperties, List<string> functions)
+        public static void Output(string path, string name, Widget widgetTree, List<string> models, List<string> stateProperties, List<string> functions, List<string> localStyles)
         {
             var output = widgetTree.Build();
 
@@ -15,14 +15,22 @@ namespace Migration.Flutter
                 Directory.CreateDirectory(directoryPath);
             }
 
-            File.WriteAllText(Path.Combine(path, $"{name.ToSnakeCase()}.dart"), BuildOutput(name, output, string.Join('\n', functions.ToArray()), string.Join('\n', models.ToArray()), string.Join('\n', stateProperties.ToArray())));
+            File.WriteAllText(Path.Combine(path, $"{name.ToSnakeCase()}.dart"),
+                              BuildOutput(name,
+                                          output,
+                                          string.Join('\n', functions.ToArray()),
+                                          string.Join('\n', models.ToArray()),
+                                          string.Join('\n', stateProperties.ToArray()),
+                                          string.Join('\n', localStyles.ToArray())
+                                          )
+                              );
 
             Console.WriteLine($"Converted: {name}");
         }
 
-        static string BuildOutput(string name, string widgetBuild, string functions, string models, string stateProperties)
+        static string BuildOutput(string name, string widgetBuild, string functions, string models, string stateProperties, string localStyles)
         {
-            return string.Format(template, name, widgetBuild, functions, models, stateProperties, BuildImports(widgetBuild));
+            return string.Format(template, name, widgetBuild, functions, models, stateProperties, BuildImports(widgetBuild), localStyles);
         }
 
         static string BuildImports(string widgetText)
@@ -40,6 +48,8 @@ namespace Migration.Flutter
         const string template = """
             import 'package:flutter/material.dart';
             {5}
+
+            {6}
 
             class {0} extends StatefulWidget {{
               const {0}({{Key? key}}) : super(key: key);

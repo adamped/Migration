@@ -35,7 +35,10 @@ namespace Migration
 
             // TODO: Binding syntax can be far more complex than this
             // Maybe I could look at the Binding Parse in XF and pull from there?
-            input = input.Replace("{Binding", "").Replace("}", "");
+            input = input.Replace("{Binding", "")
+                         .Replace("{StaticResource", "")
+                         .Replace("{DynamicResource", "")
+                         .Replace("}", "");
 
             return input.Trim();
         }

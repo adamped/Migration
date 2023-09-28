@@ -1,4 +1,7 @@
-﻿namespace Migration
+﻿using Migration.Flutter;
+using Migration.Xamarin.Entity;
+
+namespace Migration
 {
     internal static class Services
     {
@@ -10,12 +13,14 @@
         internal static List<string> Models { get; } = new();
         internal static List<string> StateProperties { get; } = new();
         internal static List<string> Functions { get; } = new();
+        internal static List<string> LocalStyles { get; } = new();
 
         internal static void Clear()
         {
             Models.Clear();
             StateProperties.Clear();
             Functions.Clear();
+            LocalStyles.Clear();
         }
 
         internal static void AddModelClass(string className, Dictionary<string, string> properties)
@@ -68,6 +73,11 @@
             }
 
             Functions.Add(string.Format(model, functionName, parameter));
+        }
+
+        internal static void AddLocalStyle(Style style)
+        {
+            StateProperties.Add(style.ToDart());
         }
     }
 }

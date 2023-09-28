@@ -15,7 +15,7 @@ namespace Migration.Xamarin.Controls
 
             var gestureRecognizers = GetGestureRecognizers(element);
 
-            var child = new Text(text.FormatStringValue()).BuildWrapperChain(element);
+            var child = new Text(text.FormatStringValue(), GetStyle(attributes)).BuildWrapperChain(element);
 
             if (gestureRecognizers.Count == 0)
             {
