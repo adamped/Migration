@@ -12,6 +12,11 @@ You are welcome to add or contribute to the project, or expand on your own local
 The basic premise for these scenarios have been accounted for:
 - Elements with multiple children
 - Elements with a single child
+- Local Styles
+- Gesture Recognizers
+- Commands
+- ListView, CollectionView
+- Layouts (StackLayout, Grid)
 - Attached Properties
 - Wrapped Widgets (e.g. Padding in Flutter wraps the child widget, however in XAML it is just a property on the Element)
 
