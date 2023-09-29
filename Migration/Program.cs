@@ -30,7 +30,7 @@ var discovery = new Xaml(rootFolder, DiscoveryType.Maui);
 
 // Config
 var outputDirectory = "..\\..\\..\\..\\..\\flutter_ui\\lib"; // Create an empty Flutter app at this location. This way you can view the output
-State.SetFramework(FrameworkType.Stacked); // Select a framework to output to (optional)
+State.SetFramework(FrameworkType.Default); // Select a framework to output to (optional)
 
 // Start Conversion
 var xamlPages = discovery.Find();
