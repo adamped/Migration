@@ -19,9 +19,9 @@ namespace Migration.Flutter.Widgets
                     child: ListView.builder(
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,                           
-                            itemCount: {0}.length,
+                            itemCount: {2}{0}.length,
                             itemBuilder: (context, index) {{
-                                var item = {0}[index];
+                                var item = {2}{0}[index];
                                 return {1};
                             }},
                     ),
@@ -33,7 +33,7 @@ namespace Migration.Flutter.Widgets
             Services.AddModelClass(_dataSourceName, _dataTemplate.Model.Properties);
             Services.AddStateProperty(_dataSourceName.PropertyNameToDart(), $"List<{_dataSourceName}>", $"<{_dataSourceName}>[]");
 
-            return string.Format(listview, _dataSourceName.PropertyNameToDart(), template);
+            return string.Format(listview, _dataSourceName.PropertyNameToDart(), template, State.Prefix);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace Migration.Flutter.Widgets
                 arg = $"'{_parameter}'";
             }
 
-            var onTap = $"() => {_function}({arg})";
+            var onTap = $"() => {State.Prefix}{_function}({arg})";
 
             return $"GestureDetector(onTap: {onTap}, child: {Child.Build()}),";
         }

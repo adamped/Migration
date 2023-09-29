@@ -77,7 +77,7 @@ namespace Migration
 
         internal static void AddLocalStyle(Style style)
         {
-            StateProperties.Add(style.ToDart());
+            LocalStyles.Add(style.ToDart());
         }
     }
 }

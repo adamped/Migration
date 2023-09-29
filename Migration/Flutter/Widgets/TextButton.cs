@@ -31,7 +31,7 @@ namespace Migration.Flutter.Widgets
                     arg = $"'{_parameter}'";
                 }
 
-                onPressed = $"() => {name}({arg})";
+                onPressed = $"() => {State.Prefix}{name}({arg})";
             }
 
             return $"""
